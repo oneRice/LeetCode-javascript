@@ -1,8 +1,16 @@
 class Solution {
 public:
     int climbStairs(int n) {
-        if (n == 1) return 1;
-        if (n == 2) return 2;
-        return climbStairs(n - 1) + climbStairs(n - 2);
+        int last = 1, now = 2;
+        if(n == 1) return last;
+        if(n == 2) return now;
+        for(int i = 2; i < n; i++)
+        {
+            int temp = now;
+            last += now;
+            now = last;
+            last = temp;
+        }
+        return now;
     }
 };
