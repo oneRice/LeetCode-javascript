@@ -7,6 +7,6 @@ public:
             if(A[searchIndex] != A[searchIndex+1])
                 A[++pos] = A[searchIndex+1];
         }
-        return ++pos;
+        return pos+1;
     }
 };
