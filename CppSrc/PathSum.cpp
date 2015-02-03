@@ -9,23 +9,12 @@
  */
 class Solution {
 public:
-    bool isLeaf(TreeNode *root) {
-        if(root->left == NULL && root->right == NULL) {
-            return true;
-        }
-        return false;
-    }
-    
-    bool hasSum(TreeNode *root, int present, int sum) {
+    bool hasPathSum(TreeNode *root, int sum) {
         if(root == NULL)
             return false;
-        if(root->val + present == sum && isLeaf(root))
+        if(root->val == sum && root->left == NULL && root->right == NULL)
             return true;
-        return hasSum(root->left, root->val + present, sum)
-            || hasSum(root->right, root->val + present, sum);
-    }
-
-    bool hasPathSum(TreeNode *root, int sum) {
-        return hasSum(root, 0, sum);
+        return hasPathSum(root->left, sum - root->val)
+            || hasPathSum(root->right, sum - root->val);
     }
 };
