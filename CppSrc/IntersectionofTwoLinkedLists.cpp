@@ -8,59 +8,38 @@
  */
 class Solution {
 public:
+    int getListLength(ListNode *head) {
+        int length = 0;
+        while(head != NULL) {
+            length++;
+            head = head->next;
+        }
+        return length;
+    }
 
-    /*
-    * This function returns the last Node of a linked list.
-    */
-    ListNode *getListTail(ListNode *head) {
-        if(head == NULL)
-            return NULL;
-        while(head->next != NULL)
+    ListNode *removeFromHead(ListNode *head, int len) {
+        for(;len > 0; len--)
             head = head->next;
         return head;
     }
 
-    /*
-    * This function makes out whether a linked list has a circle;  
-    */
-    ListNode *getMeetPoint(ListNode *head) {
-        ListNode* slow = head;
-        ListNode* fast = head;
-        while(fast != NULL && fast->next != NULL) {
-            slow = slow->next;
-            fast = fast->next->next;
-            if(slow == fast)
-                return fast;
-        }
-        return NULL;
-    }
-
-    /*
-    * This function returns the start node of circle in a linked list;
-    */    
-    ListNode *getStartOfCirle(ListNode *head, ListNode *meetPoint) {
-        while(head != meetPoint) {
-            head = head->next;
-            meetPoint = meetPoint->next;
-        }
-        return head;
-    }
-
-    /*
-    * This function returns the first intersection of two linked list.
-    * If two linked lists have no intersection, return NULL;
-    */
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-        ListNode *tailA = getListTail(headA);
-        if(tailA != NULL) {
-            tailA->next = headB;
-            ListNode *meetPoint = getMeetPoint(headA);
-            if(meetPoint != NULL) {
-                ListNode *intersectionNode = getStartOfCirle(headA, meetPoint);
-                tailA->next = NULL;
-                return intersectionNode;                
-            }
+        if(headA == NULL || headB == NULL)
+            return NULL;
+        int lenA = getListLength(headA);
+        int lenB = getListLength(headB);
+        ListNode *tempNodeA;
+        ListNode *tempNodeB;
+        if(lenA > lenB) {
+            tempNodeA = removeFromHead(headA, lenA - lenB);
+            tempNodeB = headB;
+        } else {
+            tempNodeA = removeFromHead(headB, lenB - lenA);
+            tempNodeB = headA;
         }
-        return NULL;
+        while(tempNodeA != tempNodeB && tempNodeA != NULL && tempNodeB != NULL) {
+            tempNodeA = tempNodeA->next;
+            tempNodeB = tempNodeB->next;
+        }
+        return tempNodeA;
     }
-};
