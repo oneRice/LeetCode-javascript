@@ -10,20 +10,20 @@
 class Solution {
 public:
     int sumNumbers(TreeNode *root) {
-        vector<vector<int>> sum;
-        vector<int> route;
+        int sum = 0;
+        int route = 0;
         record(sum, route, root);
-        return sumall(sum);
+        return sum;
     }
 
-    void record(vector<vector<int>> &sum, vector<int> route, TreeNode *root) {
+    void record(int &sum, int route, TreeNode *root) {
         if (root == NULL)
             return;
 
-        route.push_back(root->val);
+        route = plusbit(route + root->val);
         
-        if (isLeaf(root)) {
-            sum.push_back(route);
+        if (root->left == NULL && root->right == NULL) {
+            sum += route;
             return;
         }
 
@@ -33,22 +33,7 @@ public:
         return;
     } 
 
-    bool isLeaf(TreeNode *root) {
-        if (root->left == NULL && root->right == NULL)
-            return true;
-        return false;
-    }
-
-    int sumall(vector<vector<int>> &sum) {
-        int sumall = 0;
-        for (vector<vector<int>>::iterator isum = sum.begin(); isum != sum.end(); ++isum) {
-            int currSum = 0;
-            for (vector<int>::iterator i = (*isum).begin(); i != (*isum).end(); ++i) {
-                currSum *= 10;
-                currSum += *i;
-            }
-            sumall += currSum;
-        }
-        return sumall;
+    int plusbit(int cur, int bit) {
+        return 10 * cur + bit;
     }
 };
