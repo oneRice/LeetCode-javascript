@@ -3,35 +3,35 @@ public:
     int max = 2147483647;
     int min = -2147483648;
 
-    bool isNum(char c) {
-        return c >= '0' && c <= '9';
-    }
-
     int myAtoi(string str) {
         if (str.empty()){
             return 0;
         }
+
+        int start = 0;
         int res = 0;
         int flag = 1;
         int shown = 0;
 
-        while (str[0] == ' ') {
-            str.erase(str.begin());
+
+        while (str[start] == ' ') {
+            start ++;
         }
 
-        while (str[0] == '+' || str[0] == '-') {
+        while (str[start] == '+' || str[start] == '-') {
             if (shown == 1) {
                 return 0;
             }
 
-            if (str[0] == '-') {
+            if (str[start] == '-') {
                 flag = -1;
             }
-            str.erase(str.begin());
+            
+            start++;
             shown = 1;
         }
 
-        for (int i = 0; i < str.size(); i++) {
+        for (int i = start; i < str.size(); i++) {
             if (!isNum(str[i])){
                 break;
             }
@@ -44,6 +44,10 @@ public:
         }
 
         return res * flag;
+    }
+
+    bool isNum(char c) {
+        return c >= '0' && c <= '9';
     }
 
     bool inLimit(int res, int flag, int dig) {
