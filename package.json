@@ -1,0 +1,39 @@
+{
+  "name": "LeetCode-JavaScript",
+  "description": "The JavaScript version of LeetCode OJ testcase and solution.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/oneRice/LeetCode-javascript",
+  "author": {
+    "name": "oneRice",
+    "email": "onericeyifan@gmail.com",
+    "url": "www.one-rice.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oneRice/LeetCode-javascript.git"
+  },
+  "bugs": {
+    "url": "https://github.com/oneRice/LeetCode-javascript/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/oneRice/LeetCode-javascript/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-jshint": "^0.9.2",
+    "grunt-contrib-nodeunit": "^0.3.3",
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
+}
