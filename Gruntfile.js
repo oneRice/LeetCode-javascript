@@ -20,6 +20,16 @@ module.exports = function(grunt) {
         jshintrc: '.jshintrc',
       }
     },
+    
+    // Export the solution function automatically. 
+    auto_export: {
+      t001: {
+        options: {
+          problem: '001',
+          solution: 'twoSum'
+        }
+      }
+    },
 
     // Before generating any new files, remove any previously-created files.
     clean: {
@@ -32,6 +42,8 @@ module.exports = function(grunt) {
     }
   });
 
+  // Actually load this plugin's task(s).
+  grunt.loadTasks('preprocess');
 
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -40,7 +52,7 @@ module.exports = function(grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('t001', ['jshint:t001', 'clean', 'nodeunit:t001']);
+  grunt.registerTask('t001', ['jshint:t001', 'auto_export:t001', 'clean', 'nodeunit:t001']);
 
   grunt.registerTask('all', ['t001']);
  

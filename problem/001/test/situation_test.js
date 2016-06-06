@@ -1,3 +1,11 @@
+/*
+ * LeetCode-javascript
+ * https://github.com/oneRice/LeetCode-javascript
+ *
+ * Copyright (c) 2016 oneRice
+ * Licensed under the MIT license.
+ */
+
 'use strict';
 var grunt = require('grunt');
 var twoSum = require('./../solution.js').twoSum;
