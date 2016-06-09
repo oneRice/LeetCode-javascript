@@ -19,7 +19,7 @@ var isExported = function(src, solution) {
 }
 
 module.exports = function(grunt) {
-  grunt.registerMultiTask('auto_export', 'auto export the solution function', function() {
+  grunt.registerMultiTask('clear_export', 'Clear the export statement.', function() {
     // If the required options is not set, return.
     var options = this.options({
       problem: 'unset',
@@ -38,28 +38,16 @@ module.exports = function(grunt) {
     if (!grunt.file.exists(solution_path)) {
       grunt.log.warn('Source file "' + solution_path + '" not found.');
       return false;
-    }
-    
-    var src = grunt.file.read(solution_path);
-    
-    // Add the export statement.
-    if (!isExported(src, options.solution)) {
-      src += '\nexports.' + options.solution + ' = ' + options.solution + ';';
-    }
-
-    // Write the tmp file.
-    grunt.file.write(temp_path, src);
-    
-    // If tmp file is written successfully, making it the real solution file.
-    if (!grunt.file.exists(temp_path)) {
-      grunt.log.warn('temp file "' + temp_path + '" is not created.');
+    }   
+     
+    if (!grunt.file.exists(bak_path)) {
+      grunt.log.warn('Backup file "' + bak_path + '" not found.');
       return false;
-    }
-    
-    grunt.file.copy(solution_path,bak_path);
-    grunt.file.copy(temp_path, solution_path);
+    }      
+
+    grunt.file.copy(bak_path, solution_path);
 
     // Print a success message.
-    grunt.log.writeln('File "' + solution_path + '" processed.');
+    grunt.log.writeln('File "' + solution_path + '" export cleared.');
   });
 };

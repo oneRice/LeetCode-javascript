@@ -8,8 +8,6 @@
 
 'use strict';
 var grunt = require('grunt');
-var twoSum = require('./../solution.js').twoSum;
-var sum = require('./../../../helper/helper.js').sum;
 
 /*
   ======== A Handy Little Nodeunit Reference ========
@@ -30,88 +28,53 @@ var sum = require('./../../../helper/helper.js').sum;
     test.doesNotThrow(block, [error], [message])
     test.ifError(value)
 */
+
+// module import
+var twoSum = require('./../solution.js').twoSum; // output function of problem
+var Helper = require('./../../../helper/helper.js'); // helper module
+var Alert = require('./alert.js'); // alert output module
+
+// Macro
+var TEST_EACH_CASE = 2;
+
+// testcase data: [[[input_array], target],...]
+var datas = [[[1, 2], 3], // basic situation
+            [[1, 2, 4], 3], // left border
+            [[3, 2, 4], 6], // right border
+            [[0, 4, 3, 0], 0], // two same number
+            [[1, 2, -4, 7, 9, -11, 16, 25, -28, 46, 79], -15], // negative number
+            [[1, 2, 4, 7, 9, 11, 16, 17, 25, 26, 28, 32, 46, 79], 27], // big data 
+            [[1, 45, 84, 65464, 254, 22, 334, 8798, 44, 55, 4, 9, 454, 47, 67, 123], 276] // unsorted data
+            ]; 
+
 exports.situation = {
     setUp: function (done) {
         // setup here if necessary
         done();
     },
-    // basic situation
-    two_data: function (test) {
-        test.expect(1);
-        // backup the original array
-        var nums = [1, 2];
-        var nums_bak = nums.slice(0, nums.length);
+    
+    data_test: function (test) {
         
-        var target = 3;       
-        var actual = twoSum(nums, target);
-        var result = sum(nums_bak, actual);
-        test.equal(target, result, 'The sum of '+ actual[0] + ' and ' + actual[1] + ' should equal to' + target + '.');
-        test.done();
-    },
-    // border situation
-    first_data: function (test) {
-        test.expect(1);
-        // backup the original array
-        var nums = [1, 2, 4];
-        var nums_bak = nums.slice(0, nums.length);
+        test.expect(TEST_EACH_CASE * datas.length);
+        grunt.log.writeln('Data test entered');
         
-        var target = 3;
-        var actual = twoSum(nums, target);
-        var result = sum(nums_bak, actual);
-        test.equal(target, result, 'The sum of '+ actual[0] + ' and ' + actual[1] + ' should equal to' + target + '.');
-        test.done();
-    },
-    // border situation
-    last_data: function (test) {
-        test.expect(1);
-        // backup the original array
-        var nums = [3, 2, 4];
-        var nums_bak = nums.slice(0, nums.length);
+        for (var i = 0; i < datas.length; i++) {
+            // get the information in datas array.
+            var input = datas[i][0];
+            var target = datas[i][1];
+            
+            var input_bak = input.slice(0, input.length); // backup the origial test input.
+            
+            var selected_index = twoSum(input_bak, target);                     
+            // the two selected number should not be same.
+            test.notEqual(selected_index[0], selected_index[1], Alert.sameSelect(input, target, selected_index));
+            
+            var selected_num = Helper.indexToNum(input, selected_index);
+            // the selected two number should adds up to target.
+            var sum = selected_num[0] + selected_num[1];          
+            test.equal(sum, target, Alert.sumNotEqual(input, target, selected_index, selected_num));
+        }
         
-        var target = 6;
-        var actual = twoSum(nums, target);
-        var result = sum(nums_bak, actual);
-        grunt.log.writeln('actual is ' + actual[0] + ' ' + actual[1]);
-        test.equal(target, result, 'The sum of '+ actual[0] + ' and ' + actual[1] + 'should equal to ' + target + '.');
-        test.done();
-    },
-    // minus data
-    minus_data: function (test) {
-        test.expect(1);
-        // backup the original array
-        var nums = [1, 2, -4, 7, 9, -11, 16, 25, -28, 46, 79];
-        var nums_bak = nums.slice(0, nums.length);
-        
-        var target = 18;
-        var actual = twoSum(nums, target);
-        var result = sum(nums_bak, actual);
-        test.equal(target, result, 'The sum of '+ actual[0] + ' and ' + actual[1] + ' should equal to' + target + '.');
-        test.done();
-    },
-    // big data
-    big_data: function (test) {
-        test.expect(1);
-        // backup the original array
-        var nums = [1, 2, 4, 7, 9, 11, 16, 25, 28, 46, 79];
-        var nums_bak = nums.slice(0, nums.length);
-        
-        var target = 27;
-        var actual = twoSum(nums, target);
-        var result = sum(nums_bak, actual);
-        test.equal(target, result, 'The sum of '+ actual[0] + ' and ' + actual[1] + ' should equal to' + target + '.');
-        test.done();
-    },
-    // unsorted data
-    unsorted_data: function (test) {
-        test.expect(1);
-        // backup the original array
-        var nums = [1, 45, 84, 65464, 254, 22, 334, 8798, 44, 55, 4, 9, 454, 47, 67, 123];
-        var nums_bak = nums.slice(0, nums.length);
-        
-        var target = 276;
-        var actual = twoSum(nums, target);
-        var result = sum(nums_bak, actual);
-        test.equal(target, result, 'The sum of '+ actual[0] + ' and ' + actual[1] + ' should equal to' + target + '.');
         test.done();
     },
 };

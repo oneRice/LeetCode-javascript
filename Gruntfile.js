@@ -30,6 +30,16 @@ module.exports = function(grunt) {
         }
       }
     },
+    
+    // Clear the export statement.
+    clear_export: {
+      t001: {
+        options: {
+          problem: '001',
+          solution: 'twoSum'
+        }
+      }
+    },
 
     // Before generating any new files, remove any previously-created files.
     clean: {
@@ -52,7 +62,7 @@ module.exports = function(grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('t001', ['jshint:t001', 'auto_export:t001', 'clean', 'nodeunit:t001']);
+  grunt.registerTask('t001', ['jshint:t001', 'auto_export:t001', 'nodeunit:t001', 'clear_export:t001', 'clean']);
 
   grunt.registerTask('all', ['t001']);
  

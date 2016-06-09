@@ -7,12 +7,21 @@
  */ 
 
 "use strict";
-var sum = function (nums, pos) {
-    var result = 0;
-    for (var _i = 0, pos_1 = pos; _i < pos_1.length; _i++) {
-        var position = pos_1[_i];
-        result += nums[position];
+var indexToNum = function (array, index) {
+    var num = [];
+    for (var i = 0; i < index.length; i++) {
+        num.push(array[index[i]]);
     }
-    return result;
+    return num;
 };
-exports.sum = sum;
+
+var stringArray = function (arr) {
+    var content = '';
+    for (var i = 0; i < arr.length; i++) {
+        content += arr[i] + ', ';
+    }
+    return content;
+}
+
+exports.indexToNum = indexToNum;
+exports.stringArray = stringArray;
