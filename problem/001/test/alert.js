@@ -13,8 +13,8 @@ var stringArray = Helper.stringArray;
 
 var showProblem = function(input, target, selected) {
     var msg = '';
-    msg += '\ninput: ' + stringArray(input) + ', target: ' + target + '.\n';
-    msg += 'select_index: ' + stringArray(selected) + '.\n';
+    msg += '\ninput: ' + stringArray(input) + 'target: ' + target + '.\n';
+    msg += 'select_index: ' + stringArray(selected) + '\n';
     return msg;
 };
 
@@ -35,5 +35,5 @@ var sumNotEqual = function(input, target, selected_index, selected_num) {
 
 exports.sameSelect = sameSelect;
 exports.sumNotEqual = sumNotEqual;
-
+exports.showProblem = showProblem;
 
