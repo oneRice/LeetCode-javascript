@@ -23,10 +23,9 @@ module.exports = function(grunt) {
     // If the required options is not set, return.
     var options = this.options({
       problem: 'unset',
-      solution: 'unset'
     });
     
-    if (options.problem == 'unset' || options.solution == 'unset') {
+    if (options.problem == 'unset') {
       grunt.log.warn('Options is not set completedly.');
       return false;
     }

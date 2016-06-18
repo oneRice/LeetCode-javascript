@@ -40,8 +40,8 @@ var TOTAL_TEST_NUM = 100000;
 
 // Function
 var getLength = function() {
-    // more likely to test little length. array length is at most 1000.
-    return Math.round(1 / (0.999 * Math.random() + 0.001) + 1.4);
+    // more likely to test little length. array length [2, 1002).
+    return parseInt(1 / (0.999 * Math.random() + 0.001) + 2);
 };
 
 var randomArray = function(length) {

@@ -15,6 +15,10 @@ module.exports = function(grunt) {
       t001: [
         'Gruntfile.js',
         'problem/001/**/*.js',
+      ],      
+      t002: [
+        'Gruntfile.js',
+        'problem/002/**/*.js',
       ],
       options: {
         jshintrc: '.jshintrc',
@@ -28,6 +32,12 @@ module.exports = function(grunt) {
           problem: '001',
           solution: 'twoSum'
         }
+      },
+      t002: {
+        options: {
+          problem: '002',
+          solution: 'addTwoNumbers'
+        }
       }
     },
     
@@ -36,7 +46,11 @@ module.exports = function(grunt) {
       t001: {
         options: {
           problem: '001',
-          solution: 'twoSum'
+        },
+      },
+      t002: {
+        options: {
+          problem: '002',
         }
       }
     },
@@ -48,7 +62,8 @@ module.exports = function(grunt) {
 
     // Unit tests.
     nodeunit: {
-      t001: ['problem/001/test/*_test.js'], 
+      t001: ['problem/001/test/*_test.js'],
+      t002: ['problem/002/test/*_test.js'], 
     }
   });
 
@@ -63,8 +78,9 @@ module.exports = function(grunt) {
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
   grunt.registerTask('t001', ['jshint:t001', 'auto_export:t001', 'nodeunit:t001', 'clear_export:t001', 'clean']);
+  grunt.registerTask('t002', ['jshint:t002', 'auto_export:t002', 'nodeunit:t002', 'clear_export:t002', 'clean']);
 
-  grunt.registerTask('all', ['t001']);
+  grunt.registerTask('all', ['t001', 't002']);
  
   // By default, lint and run all tests.
   grunt.registerTask('default', ['all']);
