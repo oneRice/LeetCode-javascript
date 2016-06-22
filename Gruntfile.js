@@ -24,6 +24,10 @@ module.exports = function(grunt) {
         'Gruntfile.js',
         'problem/003/**/*.js',
       ],
+      t004: [
+        'Gruntfile.js',
+        'problem/004/**/*.js',
+      ],
       options: {
         jshintrc: '.jshintrc',
       }
@@ -48,6 +52,12 @@ module.exports = function(grunt) {
           problem: '003',
           solution: 'lengthOfLongestSubstring'
         }
+      },
+      t004: {
+        options: {
+          problem: '004',
+          solution: 'findMedianSortedArrays'
+        }
       }
     },
     
@@ -67,8 +77,12 @@ module.exports = function(grunt) {
         options: {
           problem: '003',
         }
-      }
-    },
+      },
+      t004: {
+        options: {
+          problem: '004',
+        }
+      },    },
 
     // Before generating any new files, remove any previously-created files.
     clean: {
@@ -80,6 +94,7 @@ module.exports = function(grunt) {
       t001: ['problem/001/test/*_test.js'],
       t002: ['problem/002/test/*_test.js'],
       t003: ['problem/003/test/*_test.js'],  
+      t004: ['problem/004/test/*_test.js'],  
     }
   });
 
@@ -96,8 +111,9 @@ module.exports = function(grunt) {
   grunt.registerTask('t001', ['jshint:t001', 'auto_export:t001', 'nodeunit:t001', 'clear_export:t001', 'clean']);
   grunt.registerTask('t002', ['jshint:t002', 'auto_export:t002', 'nodeunit:t002', 'clear_export:t002', 'clean']);
   grunt.registerTask('t003', ['jshint:t003', 'auto_export:t003', 'nodeunit:t003', 'clear_export:t003', 'clean']);
+  grunt.registerTask('t004', ['jshint:t004', 'auto_export:t004', 'nodeunit:t004', 'clear_export:t004', 'clean']);
 
-  grunt.registerTask('all', ['t001', 't002', 't003']);
+  grunt.registerTask('all', ['t001', 't002', 't003', 't004']);
  
   // By default, lint and run all tests.
   grunt.registerTask('default', ['all']);
