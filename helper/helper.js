@@ -28,6 +28,11 @@ var randomInt = function (low, up) {
     return Math.round(Math.random() * step)  + low;
 }
 
+var randomAlpabet = function (low, up) {
+    var d = randomInt(low, up);
+    return String.fromCharCode('a'.charCodeAt() + d);
+}
+
 var intLength = function (num) {
     var len = 0;
     while (num !== 0) {
@@ -40,4 +45,5 @@ var intLength = function (num) {
 exports.indexToNum = indexToNum;
 exports.stringArray = stringArray;
 exports.randomInt = randomInt;
+exports.randomAlpabet = randomAlpabet;
 exports.intLength = intLength;
