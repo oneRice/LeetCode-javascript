@@ -41,7 +41,7 @@ var TEST_EACH_CASE = 1;
 // Test Data
 var datas = [['a', 'a'],
             ['aba', 'aba'],
-            ['aabba', 'abba'],
+            ['aaabba', 'abba'],
             ['aaaaaa', 'aaaaaa'],
             ['abb', 'bb'] 
             ];

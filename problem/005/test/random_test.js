@@ -36,11 +36,11 @@ var Alert = require('./alert.js'); // alert output module
 var Helper = require('./test_helper.js'); // helper module
 var random = Helper.random;
 var randChar = Helper.randChar;
-var stub = Helper.longestPalindrome;
+var stub = Helper.stub;
 
 // Macro
 var TEST_EACH_CASE = 1;
-var TOTAL_TEST_NUM = 0;
+var TOTAL_TEST_NUM = 1000;
 
 // Function
 var generateData = function() {
@@ -57,24 +57,7 @@ var generateData = function() {
         str += char;
     }
     
-    var par = '';
-    
-    for (i = 0; i < str.length; i++) {
-        var cur = getPar(str, i, 1, str[i]);
-        if (cur.length > par.length) {
-            par = cur;
-        }
-    }
-    for (var j = 0; j < str.length - 1; j++) {
-        if (str[i] === str[i+1]) {
-            var cur_two = getParTwo(str, j, 1, str[j] + str[j+1]);
-            if (cur_two.length > par.length) {
-                par = cur_two;
-            }
-        }
-    }
-    
-    return [str, par];
+    return [str, stub(str)];
 };
 
 exports.situation = {
