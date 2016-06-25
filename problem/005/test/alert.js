@@ -20,7 +20,7 @@ var showProblem = function(str, par) {
 
 var strNotEqual = function(str, par, result) {
     var msg = showProblem(str, par);
-    msg += 'Your answer' + result + ' is wrong .\n';
+    msg += 'Your answer ' + result + ' is wrong .\n';
     return msg;
 };
 

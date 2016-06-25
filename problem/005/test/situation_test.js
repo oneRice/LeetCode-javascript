@@ -65,7 +65,7 @@ exports.situation = {
             
             var result = longestPalindrome(str);                     
 
-            test.equal(par, result, Alert.strNotEqual(str, result, par));            
+            test.equal(par, result, Alert.strNotEqual(str, par, result));            
         }        
         test.done();
     },
