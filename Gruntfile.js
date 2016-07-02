@@ -104,7 +104,7 @@ module.exports = function(grunt) {
     clean: {
       tests: ['tmp']
     },
-
+    
     // Unit tests.
     nodeunit: {
       t001: ['problem/001/test/*_test.js'],
@@ -123,17 +123,22 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
 
-  // Whenever the "test" task is run, first clean the "tmp" dir, then run this
-  // plugin's task(s), then test the result.
-  grunt.registerTask('t001', ['jshint:t001', 'auto_export:t001', 'nodeunit:t001', 'clear_export:t001', 'clean']);
-  grunt.registerTask('t002', ['jshint:t002', 'auto_export:t002', 'nodeunit:t002', 'clear_export:t002', 'clean']);
-  grunt.registerTask('t003', ['jshint:t003', 'auto_export:t003', 'nodeunit:t003', 'clear_export:t003', 'clean']);
-  grunt.registerTask('t004', ['jshint:t004', 'auto_export:t004', 'nodeunit:t004', 'clear_export:t004', 'clean']);
-  grunt.registerTask('t005', ['jshint:t005', 'auto_export:t005', 'nodeunit:t005', 'clear_export:t005', 'clean']);
+  // Run testcase of the problem which its number is given by argument.
+    
+  grunt.registerTask('autotest', 'autotest', function(arg1) {
+    if (arguments.length === 0) {
+      grunt.log.writeln("Please enter the problem's number.");
+    } else if (arguments.length === 1) {
+      var task = 't' + arg1;
+      grunt.task.run('jshint:' + task);
+      grunt.task.run('auto_export:' + task);
+      grunt.task.run('nodeunit:' + task);
+      grunt.task.run('clear_export:' + task);
+      grunt.task.run('clean');
+    }
+  });
 
-  grunt.registerTask('all', ['t001', 't002', 't003', 't004', 't005']);
- 
   // By default, lint and run all tests.
-  grunt.registerTask('default', ['all']);
+  grunt.registerTask('default', ['autotest']);
 
 };

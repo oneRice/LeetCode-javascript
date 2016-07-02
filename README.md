@@ -16,11 +16,9 @@ Just put your code in problem/001/solution.js.
 KEEP THE CODE SAME AS THE ONE YOU WILL SUBMIT IN BROWSER.
 
 ### Command Line
-Use the command 'grunt' or 'grunt all' to test all the problem.
-
 If you want to test a specified problem, use the command
-'grunt txxx' 
---- replace the xxx with the number of your problem, like 'grunt t001'
+'grunt autotest:xxx' 
+--- replace the xxx with the number of your problem, like 'grunt autotest:001'
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using.
@@ -28,3 +26,4 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 ## Release History
 06-June-2016 Build the Project, and add the problem 1.
 01-June-2016 Add a preprocess that Auto Export the require function.
+01-July-2016 Change the command in CLI, no longer available to test all testcase.
