@@ -41,32 +41,27 @@ module.exports = function(grunt) {
     auto_export: {
       t001: {
         options: {
-          problem: '001',
-          solution: 'twoSum'
+          problem: '001'
         }
       },
       t002: {
         options: {
-          problem: '002',
-          solution: 'addTwoNumbers'
+          problem: '002'
         }
       },
       t003: {
         options: {
-          problem: '003',
-          solution: 'lengthOfLongestSubstring'
+          problem: '003'
         }
       },
       t004: {
         options: {
-          problem: '004',
-          solution: 'findMedianSortedArrays'
+          problem: '004'
         }
       },
       t005: {
         options: {
-          problem: '005',
-          solution: 'longestPalindrome'
+          problem: '005'
         }
       }
     },
@@ -90,12 +85,12 @@ module.exports = function(grunt) {
       },
       t004: {
         options: {
-          problem: '004',
+          problem: '004'
         }
       },
       t005: {
         options: {
-          problem: '005',
+          problem: '005'
         }
       }, 
     },

@@ -52,4 +52,3 @@ var twoSum = function (nums, target) {
     
     return false;
 };
-exports.twoSum = twoSum;

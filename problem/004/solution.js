@@ -37,4 +37,3 @@ var findMedianSortedArrays = function(nums1, nums2) {
     var len = total.length;
     return (len % 2 === 0) ? (total[len/2] + total[len/2 - 1]) / 2 : total[(len - 1)/2];
 };
-exports.findMedianSortedArrays = findMedianSortedArrays;

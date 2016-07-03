@@ -8,6 +8,17 @@
 
 'use strict';
 
+var name = require('./solution_name.js').solution_name;
+
+var findName = function (arr, num) { 
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i][0] === num) {
+      return arr[i][1];
+    }
+  }
+  return 'unfound';
+}
+
 // Test whether the solution.js has been auto-exported  
 var isExported = function(src, solution) {
   var remaining = -1 * solution.length - 1;
@@ -23,10 +34,9 @@ module.exports = function(grunt) {
     // If the required options is not set, return.
     var options = this.options({
       problem: 'unset',
-      solution: 'unset'
     });
     
-    if (options.problem == 'unset' || options.solution == 'unset') {
+    if (options.problem == 'unset') {
       grunt.log.warn('Options is not set completedly.');
       return false;
     }
@@ -43,8 +53,15 @@ module.exports = function(grunt) {
     var src = grunt.file.read(solution_path);
     
     // Add the export statement.
-    if (!isExported(src, options.solution)) {
-      src += '\nexports.' + options.solution + ' = ' + options.solution + ';';
+    
+    var solution = findName(name, options.problem);
+    
+    if (solution === 'unfound') {
+      return false;
+    }
+    
+    if (!isExported(src, solution)) {
+      src += '\nexports.' + solution + ' = ' + solution + ';';
     }
 
     // Write the tmp file.

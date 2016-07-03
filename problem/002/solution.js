@@ -59,4 +59,3 @@ var addTwoNumbers = function(l1, l2) {
     
     return head;
 };
-exports.addTwoNumbers = addTwoNumbers;
