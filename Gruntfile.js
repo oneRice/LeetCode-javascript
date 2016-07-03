@@ -12,25 +12,23 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     jshint: {
+      self: [
+        'Gruntfile.js'
+      ],
       t001: [
-        'Gruntfile.js',
-        'problem/001/**/*.js',
+        'problem/001/**/*.js'
       ],      
       t002: [
-        'Gruntfile.js',
-        'problem/002/**/*.js',
+        'problem/002/**/*.js'
       ],
       t003: [
-        'Gruntfile.js',
-        'problem/003/**/*.js',
+        'problem/003/**/*.js'
       ],
       t004: [
-        'Gruntfile.js',
-        'problem/004/**/*.js',
+        'problem/004/**/*.js'
       ],
       t005: [
-        'Gruntfile.js',
-        'problem/005/**/*.js',
+        'problem/005/**/*.js'
       ],
       options: {
         jshintrc: '.jshintrc',
@@ -70,17 +68,17 @@ module.exports = function(grunt) {
     clear_export: {
       t001: {
         options: {
-          problem: '001',
+          problem: '001'
         },
       },
       t002: {
         options: {
-          problem: '002',
+          problem: '002'
         }
       },
       t003: {
         options: {
-          problem: '003',
+          problem: '003'
         }
       },
       t004: {
@@ -125,6 +123,7 @@ module.exports = function(grunt) {
       grunt.log.writeln("Please enter the problem's number.");
     } else if (arguments.length === 1) {
       var task = 't' + arg1;
+      grunt.task.run('jshint:self');
       grunt.task.run('jshint:' + task);
       grunt.task.run('auto_export:' + task);
       grunt.task.run('nodeunit:' + task);
