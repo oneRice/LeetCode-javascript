@@ -20,7 +20,7 @@ module.exports = function(grunt) {
     return 'unfound';
   }  
   
-  // Auto export the solution function.
+  // Auto export the solution function. 
   grunt.registerTask('auto_export', 'auto export the solution function', function(num) {
     if (arguments.length !== 1) {
       grunt.warn('Please enter the number of problem.');

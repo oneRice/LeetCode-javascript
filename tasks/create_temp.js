@@ -11,7 +11,7 @@
 module.exports = function(grunt) {
   
   var moveToTemp = function(abspath, rootdir, subdir, filename) {
-    var tmp_dir = 'tmp/' + abspath.slice(rootdir.length, abspath.length);
+    var tmp_dir = 'tmp/' + abspath.slice(rootdir.length + 1, abspath.length);
     if (grunt.file.isDir(abspath)) {
         grunt.file.mkdir(tmp_dir);
     } else if (grunt.file.isFile(abspath)) {
@@ -26,13 +26,21 @@ module.exports = function(grunt) {
       return false;
     }
 
+    var test_path = 'testcase/' + num;
+    if (!grunt.file.isDir(test_path)) {
+      grunt.warn('The testcase of problem ' + num + ' is not found.');
+      return false;
+    }      
+    
+    //move the problem to temp folder.
+    grunt.file.recurse(test_path, moveToTemp);
+    
     var solution_path = 'solution/' + num + '/solution.js';
     if (!grunt.file.isFile(solution_path)) {
       grunt.warn('The solution file of problem ' + num + ' is not found.');
       return false;
     }
-      
-    //move the problem to temp folder.
-    grunt.file.recurse(problem_path, moveToTemp);
+    
+    grunt.file.copy(solution_path, 'tmp/solution.js');
   });
 };
