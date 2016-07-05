@@ -1,4 +1,4 @@
-var Helper = require('./../../../helper/helper.js'); // helper module
+var Helper = require('./../helper.js'); // helper module
 
 var getPar = function(s, i, len, str) {
     if (i - len >= 0 && i + len < s.length) {
@@ -43,3 +43,5 @@ var longestPalindrome = function(s) {
 exports.random = Helper.randomInt;
 exports.randChar = Helper.randomAlpabet;
 exports.stub = longestPalindrome;
+
+exports.Helper = Helper;

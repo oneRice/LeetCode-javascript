@@ -30,7 +30,7 @@ var grunt = require('grunt');
 */
 
 // module import
-var lengthOfLongestSubstring = require('./../solution.js').lengthOfLongestSubstring; // output function of problem
+var lengthOfLongestSubstring = require('./solution.js').lengthOfLongestSubstring; // output function of problem
 var Alert = require('./alert.js'); // alert output module
 
 var Helper = require('./test_helper.js'); // helper module

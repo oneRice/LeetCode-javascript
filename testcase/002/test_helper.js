@@ -1,4 +1,4 @@
-var Helper = require('./../../../helper/helper.js'); // helper module
+var Helper = require('./../helper/helper.js'); // helper module
 
 function ListNode(val) {
     this.val = val;
@@ -69,3 +69,5 @@ exports.numToArray = numToArray;
 exports.random = Helper.randomInt;
 exports.intLength = Helper.intLength;
 exports.stringArray = Helper.stringArray;
+
+exports.Helper = Helper;

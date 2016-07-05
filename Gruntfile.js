@@ -16,7 +16,7 @@ module.exports = function(grunt) {
         'Gruntfile.js'
       ],
       tmp: [
-        'tmp/**/*.js'
+        'tmp/*.js'
       ],
       options: {
         jshintrc: '.jshintrc'
@@ -25,7 +25,7 @@ module.exports = function(grunt) {
     
     // Unit tests.
     nodeunit: {
-      tmp: ['tmp/test/*_test.js']
+      tmp: ['tmp/*_test.js']
     },
     
     // After test, remove any previously-created temp files.
@@ -55,8 +55,8 @@ module.exports = function(grunt) {
       //actually run the test in tmp folder.
       grunt.task.run('moveToTemp:' + num);
       grunt.task.run('auto_export:' + num);
-      // grunt.task.run('nodeunit:tmp');
-      grunt.task.run('clean:tmp');     
+      grunt.task.run('nodeunit:tmp');
+      // grunt.task.run('clean:tmp');  
     }
   });
 

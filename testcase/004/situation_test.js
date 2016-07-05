@@ -30,7 +30,7 @@ var grunt = require('grunt');
 */
 
 // module import
-var findMedianSortedArrays = require('./../solution.js').findMedianSortedArrays; // output function of problem
+var findMedianSortedArrays = require('./solution.js').findMedianSortedArrays; // output function of problem
 var Alert = require('./alert.js'); // alert output module
 
 var Helper = require('./test_helper.js'); // helper module
@@ -52,7 +52,7 @@ exports.situation = {
     data_test: function (test) {
         var len = datas.length;
         test.expect(TEST_EACH_CASE * len);
-        grunt.log.writeln('Random test entered');
+        grunt.log.writeln('Situation test entered');
 
         
         for (var i = 0; i < len; i++) {

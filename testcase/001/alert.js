@@ -8,7 +8,7 @@
 
 'use strict';
 
-var Helper = require('./../../../helper/helper.js'); // helper module
+var Helper = require('./test_helper.js').Helper; // helper module
 var stringArray = Helper.stringArray;
 
 var showProblem = function(input, target, selected) {

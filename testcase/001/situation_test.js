@@ -30,8 +30,8 @@ var grunt = require('grunt');
 */
 
 // module import
-var twoSum = require('./../solution.js').twoSum; // output function of problem
-var Helper = require('./../../../helper/helper.js'); // helper module
+var twoSum = require('./solution.js').twoSum; // output function of problem
+var Helper = require('./test_helper.js').Helper; // helper module
 var Alert = require('./alert.js'); // alert output module
 
 // Macro
@@ -56,7 +56,7 @@ exports.situation = {
     data_test: function (test) {
         
         test.expect(TEST_EACH_CASE * datas.length);
-        grunt.log.writeln('Data test entered');
+        grunt.log.writeln('Situation test entered');
         
         for (var i = 0; i < datas.length; i++) {
             // get the information in datas array.

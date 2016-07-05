@@ -28,7 +28,6 @@ module.exports = function(grunt) {
     }
     
     var solution_path = 'tmp/solution.js';
-    console.log(solution_path + ' success');
     
     if (!grunt.file.exists(solution_path)) {
       grunt.log.warn('Source file "' + solution_path + '" not found.');
@@ -36,11 +35,9 @@ module.exports = function(grunt) {
     }
     
     var src = grunt.file.read(solution_path);
-    console.log(solution_path + ' read success');
     
     // Add the export statement.    
     var solution = findName(name, num);
-    console.log('the solution name is ' + solution);
     
     if (solution === 'unfound') {
       grunt.log.warn('the solution name is unfound.');
