@@ -40,7 +40,16 @@ var TOTAL_TEST_NUM = 1000;
 
 // Generate Data
 
-
+var generateData = function() {
+    var digit_num = Helper.random(2, 25);
+    var len = Helper.random(1, 500);
+    var str = '';
+    for (var i = 0; i < len; i++) {
+        str += Helper.randChar(0, digit_num);
+    }
+    
+    return [str, Helper.stub(str)];
+}
 
 exports.situation = {
     setUp: function (done) {
@@ -49,15 +58,14 @@ exports.situation = {
     },
     
     data_test: function (test) {
-        var len = datas.length;
-        test.expect(TEST_EACH_CASE * len);
+        test.expect(TEST_EACH_CASE * TOTAL_TEST_NUM);
         grunt.log.writeln('Random test entered');
-
         
-        for (var i = 0; i < len; i++) {
+        for (var i = 0; i < TOTAL_TEST_NUM; i++) {
             // generate the input and target
-            var str = datas[i][0];
-            var par = datas[i][1];
+            var datas = generateData();
+            var str = datas[0];
+            var par = datas[1];
             
             var result = longestPalindrome(str);                     
 

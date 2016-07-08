@@ -1,4 +1,4 @@
-var Helper = require('./../helper.js'); // helper module
+var Helper = require('./../helper/helper.js'); // helper module
 
 var getPar = function(s, i, len, str) {
     if (i - len >= 0 && i + len < s.length) {
