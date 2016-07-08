@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * @param {string} s
  * @return {number}

@@ -9,11 +9,11 @@
 'use strict';
 
 module.exports = function(grunt) {
-  var name_array = require('./problem_resource.js').solution_name;
-  var findName = require('./problem_resource.js').findPara;
+  var type_array = require('./problem_resource.js').solution_type;
+  var findPara = require('./problem_resource.js').findPara;
   
   // Auto export the solution function. 
-  grunt.registerTask('autoExport', 'auto export the solution function', function(num) {
+  grunt.registerTask('typeImport', 'import user defined type for testing', function(num) {
     if (arguments.length !== 1) {
       grunt.warn('Please enter the number of problem.');
       return false;
@@ -28,15 +28,18 @@ module.exports = function(grunt) {
     
     var src = grunt.file.read(solution_path);
     
-    // Add the export statement.    
-    var solution = findName(name_array, num);
+    var head = "'use strict';\n";
     
-    if (solution === 'unfound') {
-      grunt.log.warn('the solution name is unfound.');
-      return false;
+    // Add the export statement.    
+    var needed_type = findPara(type_array, num);
+    
+    if (needed_type !== 'unfound') {
+        for (var i = 0; i < needed_type.length; i++) {
+            head += "var " + needed_type[i] + " = require('./../helper/type.js')." + needed_type[i] + ";\n";
+        }
     }
     
-    src += '\nexports.' + solution + ' = ' + solution + ';';
+    src = head + src;
 
     // Write the file.
     grunt.file.write(solution_path, src);

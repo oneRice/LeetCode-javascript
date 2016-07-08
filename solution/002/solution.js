@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {
@@ -12,11 +10,6 @@
  * @param {ListNode} l2
  * @return {ListNode}
  */
-
-function ListNode(val) {
-    this.val = val;
-    this.next = null;
-}
 
 var getValue = function (list) {
     if (list === null) {

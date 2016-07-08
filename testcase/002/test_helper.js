@@ -1,10 +1,5 @@
 var Helper = require('./../helper/helper.js'); // helper module
-
-function ListNode(val) {
-    this.val = val;
-    this.next = null;
-}
- 
+var ListNode = require('./../helper/type.js').ListNode;
  
 var listToNum = function(list) {
     var num = 0;

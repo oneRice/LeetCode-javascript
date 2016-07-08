@@ -54,7 +54,8 @@ module.exports = function(grunt) {
       
       //actually run the test in tmp folder.
       grunt.task.run('moveToTemp:' + num);
-      grunt.task.run('auto_export:' + num);
+      grunt.task.run('typeImport:' + num);
+      grunt.task.run('autoExport:' + num);
       grunt.task.run('nodeunit:tmp');
       // grunt.task.run('clean:tmp');  
     }
