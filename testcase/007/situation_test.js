@@ -30,7 +30,7 @@ var grunt = require('grunt');
 */
 
 // module import
-var reverse = require('./solution.js').reverse; // output function of problem
+var reverse = require('./solution.js').solution; // output function of problem
 var Alert = require('./alert.js'); // alert output module
 var Helper = require('./test_helper.js'); // helper module
 
@@ -41,7 +41,8 @@ var TEST_EACH_CASE = 1;
 var datas = [[123, 321],
              [-123, -321],
              [0, 0],
-             [620, 26]
+             [620, 26],
+             [234141341341234, 0]
             ];
 
 exports.situation = {

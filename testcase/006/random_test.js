@@ -30,7 +30,7 @@ var grunt = require('grunt');
 */
 
 // module import
-var convert = require('./solution.js').convert; // output function of problem
+var convert = require('./solution.js').solution; // output function of problem
 var Alert = require('./alert.js'); // alert output module
 var Helper = require('./test_helper.js'); // helper module
 

@@ -30,7 +30,7 @@ var grunt = require('grunt');
 */
 
 // module import
-var twoSum = require('./solution.js').twoSum; // output function of problem
+var twoSum = require('./solution.js').solution; // output function of problem
 var Helper = require('./test_helper.js').Helper; // helper module
 var Alert = require('./alert.js'); // alert output module
 

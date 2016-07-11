@@ -30,7 +30,7 @@ var grunt = require('grunt');
 */
 
 // module import
-var reverse = require('./solution.js').reverse; // output function of problem
+var reverse = require('./solution.js').solution; // output function of problem
 var Alert = require('./alert.js'); // alert output module
 var Helper = require('./test_helper.js'); // helper module
 
@@ -41,7 +41,7 @@ var TOTAL_TEST_NUM = 1000;
 // Generate Data
 
 var generateData = function() {
-    var num = Helper.random(1, 1000000000000);
+    var num = Helper.random(1, 10000000000);
     return [num, Helper.stub(num)];
 }
 

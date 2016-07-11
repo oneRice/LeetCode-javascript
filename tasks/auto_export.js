@@ -36,7 +36,7 @@ module.exports = function(grunt) {
       return false;
     }
     
-    src += '\nexports.' + solution + ' = ' + solution + ';';
+    src += '\nexports.solution = ' + solution + ';';
 
     // Write the file.
     grunt.file.write(solution_path, src);
