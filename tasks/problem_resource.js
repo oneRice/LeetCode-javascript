@@ -12,7 +12,8 @@ var solution_name = [['001', 'twoSum'],
                      ['003', 'lengthOfLongestSubstring'],
                      ['004', 'findMedianSortedArrays'],
                      ['005', 'longestPalindrome'],
-                     ['006', 'convert']
+                     ['006', 'convert'],
+                     ['007', 'reverse']
                      ];
                      
 var solution_type = [['002', ['ListNode']]];
