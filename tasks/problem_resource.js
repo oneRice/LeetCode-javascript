@@ -13,7 +13,9 @@ var solution_name = [['001', 'twoSum'],
                      ['004', 'findMedianSortedArrays'],
                      ['005', 'longestPalindrome'],
                      ['006', 'convert'],
-                     ['007', 'reverse']
+                     ['007', 'reverse'],
+                     ['008', 'myAtoi'],
+                     ['009', 'isPalindrome']
                      ];
                      
 var solution_type = [['002', ['ListNode']]];
