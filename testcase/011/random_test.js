@@ -41,10 +41,10 @@ var TOTAL_TEST_NUM = 1000;
 // Generate Data
 
 var generateData = function() {
-    var len = Helper.random(1, 100);
+    var len = Helper.random(1, 1000);
     var num = [];
     for (var i = 0; i < len; i++) {
-        num[i] = Helper.random(0, 100);
+        num[i] = Helper.random(0, 1000);
     }
     return [num, Helper.stub(num)];
 }
