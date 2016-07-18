@@ -30,20 +30,20 @@ var grunt = require('grunt');
 */
 
 // module import
-var reverse = require('./solution.js').solution; // output function of problem
+var solution = require('./solution.js').solution; // output function of problem
 var Alert = require('./alert.js'); // alert output module
 var Helper = require('./test_helper.js'); // helper module
 
 // Macro
 var TEST_EACH_CASE = 1;
-var TOTAL_TEST_NUM = 1000;
 
-// Generate Data
-
-var generateData = function() {
-    var num = Helper.random(-1000000000, 10000000000);
-    return [num, Helper.stub(num)];
-}
+// Test Data
+var datas = [[[1, 1], 1],
+             [[1, 2, 2], 2],
+             [[1, 5, 2], 2],
+             [[2, 0, 3], 4],
+             [[1, 0, 2, 0, 1], 4]
+            ];
 
 exports.situation = {
     setUp: function (done) {
@@ -52,16 +52,16 @@ exports.situation = {
     },
     
     data_test: function (test) {
-        test.expect(TEST_EACH_CASE * TOTAL_TEST_NUM);
-        grunt.log.writeln('Random test entered');
+        var len = datas.length;
+        test.expect(TEST_EACH_CASE * len);
+        grunt.log.writeln('Situation test entered');
         
-        for (var i = 0; i < TOTAL_TEST_NUM; i++) {
+        for (var i = 0; i < len; i++) {
             // generate the input and target
-            var datas = generateData();
-            var num = datas[0];
-            var stub_res = datas[1];
-
-            var result = reverse(num);
+            var num = datas[i][0];
+            var stub_res = datas[i][1];
+            
+            var result = solution(num);                     
 
             test.equal(stub_res, result, Alert.notEqual(num, stub_res, result));            
         }        
