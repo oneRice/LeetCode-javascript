@@ -44,7 +44,8 @@ var datas = [[12321, true],
              [-1, false],
              [-1245421, false],
              [12, false],
-             [-123432, false]
+             [-123432, false],
+             [110, false]
             ];
 
 exports.situation = {

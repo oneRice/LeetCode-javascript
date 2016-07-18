@@ -2,15 +2,32 @@
  * @param {number} x
  * @return {boolean}
  */
+var reverse = function(x) {
+    var digit = 1;
+    var res = 0;
+    var cur;
+    if (x < 0) {
+        digit = -1;
+        x *= -1;
+    }
+    while (x !== 0) {
+        cur = x % 10;
+        x = parseInt(x/10);
+        res *= 10;
+        res += cur;
+    }
+    if (digit === 1 && res > 2147483648) {
+        return 0;
+    } else if (digit === -1 && res > 2147483647) {
+        return 0;
+    }
+
+    return digit * res;
+};
+
 var isPalindrome = function(x) {
     if (x < 0) {
         return false;
     }
-    var s = x.toString();
-    for (var i = 0; i < s.length / 2 ; i ++) {
-        if (s[i] !== s[s.length - 1 - i]) {
-            return false;
-        }
-    }
-    return true;
+    return x === reverse(x);
 };
