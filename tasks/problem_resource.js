@@ -18,7 +18,8 @@ var solution_name = [['001', 'twoSum'],
                      ['009', 'isPalindrome'],
                      //['010', ''],
                      ['011', 'maxArea'],
-                     ['012', 'intToRoman']
+                     ['012', 'intToRoman'],
+                     ['013', 'romanToInt']
                      ];
                      
 var solution_type = [['002', ['ListNode']]];
