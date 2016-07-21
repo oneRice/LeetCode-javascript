@@ -19,7 +19,8 @@ var solution_name = [['001', 'twoSum'],
                      //['010', ''],
                      ['011', 'maxArea'],
                      ['012', 'intToRoman'],
-                     ['013', 'romanToInt']
+                     ['013', 'romanToInt'],
+                     ['014', 'longestCommonPrefix']
                      ];
                      
 var solution_type = [['002', ['ListNode']]];
