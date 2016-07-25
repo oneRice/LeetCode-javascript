@@ -24,6 +24,6 @@ var stub = function(a) {
 exports.random = Helper.randomInt;
 exports.randChar = Helper.randomAlpabet;
 exports.sameArray = Judge.sameArray;
-exports.stub = exports.stub;
+exports.stub = stub;
 
 exports.Helper = Helper;

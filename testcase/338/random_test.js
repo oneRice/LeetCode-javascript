@@ -36,12 +36,12 @@ var Helper = require('./test_helper.js'); // helper module
 
 // Macro
 var TEST_EACH_CASE = 1;
-var TOTAL_TEST_NUM = 10000;
+var TOTAL_TEST_NUM = 1000;
 
 // Generate Data
 
 var generateData = function() {
-    var len = Helper.random(1, 3999);
+    var len = Helper.random(1, 1000);
 
     return [len, Helper.stub(len)];
 }
