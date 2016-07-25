@@ -20,7 +20,9 @@ var solution_name = [['001', 'twoSum'],
                      ['011', 'maxArea'],
                      ['012', 'intToRoman'],
                      ['013', 'romanToInt'],
-                     ['014', 'longestCommonPrefix']
+                     ['014', 'longestCommonPrefix'],
+                     ['015', 'threeSum'],
+                     ['344', 'reverseString']
                      ];
                      
 var solution_type = [['002', ['ListNode']]];
