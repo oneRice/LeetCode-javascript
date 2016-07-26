@@ -24,7 +24,8 @@ var solution_name = [['001', 'twoSum'],
                      ['015', 'threeSum'],
                      ['292', 'canWinNim'],
                      ['338', 'countBits'],
-                     ['344', 'reverseString']
+                     ['344', 'reverseString'],
+                     ['371', 'getSum']
                      ];
                      
 var solution_type = [['002', ['ListNode']]];
