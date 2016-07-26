@@ -22,6 +22,8 @@ var solution_name = [['001', 'twoSum'],
                      ['013', 'romanToInt'],
                      ['014', 'longestCommonPrefix'],
                      ['015', 'threeSum'],
+                     ['292', 'canWinNim'],
+                     ['338', 'countBits'],
                      ['344', 'reverseString']
                      ];
                      
