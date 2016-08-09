@@ -22,6 +22,7 @@ var solution_name = [['001', 'twoSum'],
                      ['013', 'romanToInt'],
                      ['014', 'longestCommonPrefix'],
                      ['015', 'threeSum'],
+                     ['104', 'maxDepth'],
                      ['136', 'singleNumber'],
                      ['258', 'addDigits'],
                      ['292', 'canWinNim'],
@@ -30,7 +31,9 @@ var solution_name = [['001', 'twoSum'],
                      ['371', 'getSum']
                      ];
                      
-var solution_type = [['002', ['ListNode']]];
+var solution_type = [['002', ['ListNode']],
+                     ['104', ['TreeNode']]
+                    ];
                
 exports.solution_name = solution_name;
 exports.solution_type = solution_type;
