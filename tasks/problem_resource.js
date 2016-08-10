@@ -24,6 +24,7 @@ var solution_name = [['001', 'twoSum'],
                      ['015', 'threeSum'],
                      ['104', 'maxDepth'],
                      ['136', 'singleNumber'],
+                     ['226', 'invertTree'],
                      ['258', 'addDigits'],
                      ['292', 'canWinNim'],
                      ['338', 'countBits'],
@@ -32,7 +33,8 @@ var solution_name = [['001', 'twoSum'],
                      ];
                      
 var solution_type = [['002', ['ListNode']],
-                     ['104', ['TreeNode']]
+                     ['104', ['TreeNode']],
+                     ['226', ['TreeNode']]
                     ];
                
 exports.solution_name = solution_name;

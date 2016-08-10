@@ -23,6 +23,15 @@ var stringArray = function (arr) {
     return content;
 }
 
+var stringArrayTwo = function (arr) {
+    var content = '';
+    for (var i = 0; i < arr.length; i++) {
+        content += stringArray(arr[i]);
+        content += ';\n';
+    }
+    return content;
+}
+
 var randomInt = function (low, up) {
     var step = Math.round(up - low);
     return Math.round(Math.random() * step)  + low;
@@ -40,10 +49,21 @@ var intLength = function (num) {
         num = parseInt(num / 10);
     }
     return (len == 0) ? 1 : len;
+};
+
+var repeat = function(str, times) {
+    if (times < 0) {
+        return '';
+    }
+    return (new Array(times + 1).join(str));
 }
 
 exports.indexToNum = indexToNum;
 exports.stringArray = stringArray;
+exports.stringArrayTwo =stringArrayTwo;
+
 exports.randomInt = randomInt;
 exports.randomAlpabet = randomAlpabet;
 exports.intLength = intLength;
+
+exports.repeat = repeat;
