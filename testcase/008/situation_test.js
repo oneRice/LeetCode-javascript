@@ -43,9 +43,17 @@ var datas = [['1', 1],
              ['-123', -123],
              ['adffad', 0],
              ['-123.123', -123],
+             ['+8', 8],
              [' 1', 1],
              [' 3', 3],
-             ['234141341341234', 234141341341234]
+             ['2147483648', 2147483647],
+             ['-2147483648', -2147483648],
+             ['-2147483649', -2147483648],
+             ['+-1', 0],
+             ['-+1', 0],
+             ['   +0 123', 0],
+             ['123 54', 123],
+             ['  +  413', 0]
             ];
 
 exports.situation = {
@@ -67,7 +75,7 @@ exports.situation = {
             
             var result = reverse(num);                     
 
-            test.equal(stub_res, result, Alert.notEqual(num, stub_res, result));            
+            test.equal(stub_res, result, Alert.notEqual(num, stub_res, result, i));            
         }        
         test.done();
     },
